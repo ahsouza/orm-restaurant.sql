@@ -21,8 +21,7 @@ DROP TABLE IF EXISTS `restaurant`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `restaurant` (
   `restaurant_id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `lei_code` varchar(15) DEFAULT NULL,
-  `order_id` int(11) DEFAULT NULL,
+  `lei_code` varchar(25) DEFAULT NULL,
   `catalog_id` int(11) DEFAULT NULL,
   `payment_accepted_id` int(11) DEFAULT NULL,
   `address_id` int(11) DEFAULT NULL,
@@ -58,9 +57,6 @@ CREATE TABLE `restaurant` (
   `status` smallint(1) DEFAULT '0' COMMENT '0:close, 1:open, 2:in repairs',
   PRIMARY KEY (`restaurant_id`),
 
-  KEY `FK_restaurant_order_id` (`order_id`),
-  CONSTRAINT `FK_restaurant_order_id` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`),
-  
   KEY `FK_restaurant_catalog_id` (`catalog_id`),
   CONSTRAINT `FK_restaurant_catalog_id` FOREIGN KEY (`catalog_id`) REFERENCES `catalog` (`catalog_id`),
   
@@ -83,3 +79,87 @@ CREATE TABLE `restaurant` (
   CONSTRAINT `FK_restaurant_photos_id` FOREIGN KEY (`photos_id`) REFERENCES `photos` (`photos_id`),
 
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COMMENT='number 1';
+
+/*!40101 SET character_set_client = @saved_cs_client */;
+--
+-- Dumping data for table `restaurant`
+--
+LOCK TABLES `restaurant` WRITE;
+/*!40000 ALTER TABLE `restaurant` DISABLE KEYS */;
+INSERT INTO `restaurant` VALUES (
+  1,
+  '529900423D4YJ9GFNCF93',
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  'Restaurante e Pizzaria Nobre',
+  'Self-service casual de rotatividade com carnes na brasa e menu noturno de pizzas tradicionais de fornalha.',
+  'data:48918494825J3KJKD8728GD0SR8952895252LKVKNKTerror.gif',
+  '552732186225',
+  'contato@restaurantenobre.com.br',
+  'https://www.restaurantenobre.com.br',
+  'Marcos Nobre',
+  '0',
+  '',
+  4.75,
+  'Real/Dolar/Euro',
+  '08:00 às 17:00',
+  '',
+  '500m³',
+  'Vencedor Em 1ª Lugar No Evento Melhor Economia Em Qualidade de Alimentos',
+  'corrections',
+  'deversity',
+  'ethics',
+  '2021-09-09 05:11:07',
+  '5600000000014',
+  '0',
+  'português-brasileiro, english',
+  '1',
+  '2021-09-09 13:21:20',
+  '2021-09-09 13:21:20',
+  '1'
+  ),
+  (
+    2,
+    'G6990042134YJ9GFNCF93',
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    'Restaurante & Churrascaria do Gaúcho',
+    'Self-service casual de rotatividade com carnes na brasa e menu noturno de pizzas tradicionais de fornalha.',
+    'data:48918494825J3KJKD8728GD0SR8952895252LKVKNKTerror.gif',
+    '552732186225',
+    'contato@restaurantenobre.com.br',
+    'https://www.restaurantenobre.com.br',
+    'Marcelo Gaúcho',
+    '0',
+    '',
+    4.75,
+    'Real/Dolar/Euro',
+    '08:00 às 17:00',
+    '',
+    '1.500m³',
+    'Vencedor Em 1ª Lugar No Evento Melhor Economia Em Qualidade de Alimentos',
+    'corrections',
+    'deversity',
+    'ethics',
+    '2021-09-09 05:18:07',
+    '8700013500014',
+    '0',
+    'português-brasileiro, english',
+    '1',
+    '2021-09-09 13:25:43',
+    '2021-09-09 13:25:43',
+    '1'
+  ),
+/*!40000 ALTER TABLE `order_details` ENABLE KEYS */;
+UNLOCK TABLES;
+
